@@ -13,7 +13,8 @@ def menu():
         cs.reset_colors()
         print("\n(1) Play")
         print("(2) Options")
-        print("(3) Quit")
+        print("(3) Help")
+        print("(4) Quit")
         while True:
             noice = input("> ")
             if not noice.isdigit():
@@ -45,6 +46,8 @@ def menu():
                     os.system("cls")
                     break
             elif noice == "3":
+                print("DOE HIER DE HELP KANKER DANI")
+            elif noice == "4":
                 print("Bye!")
                 quit()
             

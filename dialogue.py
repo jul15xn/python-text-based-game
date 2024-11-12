@@ -18,8 +18,9 @@ def print_text_dialogue(text, total_intro_time, fore=37, back=40):
             time.sleep(delay)
         else:
             for letter in part:
-                print(letter, end='', flush=True)  # Flush after printing each letter
-                time.sleep(separate_sleep_time)
+                print(letter, end='', flush=True)
+                if False: # set to false for debug mode which removes the print delay
+                    time.sleep(separate_sleep_time)
 
 def new_line():
     print("")
