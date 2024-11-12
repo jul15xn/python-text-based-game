@@ -1,5 +1,10 @@
 from scenes import menu
+import colors as cs
 import os
 
 os.system("cls")
-menu.menu()
+try:
+    menu.menu()
+except KeyboardInterrupt:
+    cs.reset_colors()
+    print("\n\nBye!")

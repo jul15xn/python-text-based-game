@@ -1,9 +1,12 @@
 import dialogue as dlo
 import colors as cs
+from scenes import cell
 import os
 import time
 
+
 def menu():
+    docentmode = False
     while True:
         cs.set_console_color(93, 101)
         print("Welkom bij onze game!")
@@ -18,14 +21,15 @@ def menu():
                 print("That is not a valid option!")
                 cs.reset_colors()
             elif noice == "1":
-                # play
+                os.system("cls")
+                cell.cell(docentmode)
                 pass
             elif noice == "2":
                 os.system("cls")
                 cs.set_console_color(93, 101)
                 print("Game Options")
                 cs.reset_colors()
-                print("\n(1) Docent mode (OFF)")
+                print(f"\n(1) Docent mode ({docentmode})")
                 op = input("> ")
                 if not op.isdigit():
                     cs.set_console_color(31)
@@ -34,6 +38,7 @@ def menu():
                 elif op == "1":
                     #option mode
                     cs.set_console_color(32)
+                    docentmode = not docentmode
                     print("Set option!")
                     cs.reset_colors()
                     time.sleep(2)
