@@ -3,7 +3,7 @@ import colors as cs
 from scenes import cell
 import os
 import time
-
+import game
 
 def menu():
     docentmode = False
@@ -23,7 +23,7 @@ def menu():
                 cs.reset_colors()
             elif noice == "1":
                 os.system("cls")
-                cell.cell(docentmode)
+                game.run_game()
                 pass
             elif noice == "2":
                 os.system("cls")
