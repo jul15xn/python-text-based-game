@@ -16,12 +16,34 @@ class Cell(Scene):
         self.dialogue.new_line()
         self.dialogue.print_text_dialogue("Wat wil je nu gaan doen?<500>", 1)
         self.dialogue.new_line()
-        while True:
-            doen = input(": ")
-            doen = doen.split(" ")
-            if doen[0] == "kijk" and doen[1] == "rond":
-                self.kijk_rond()
-                self.dialogue.new_line()
 
     def kijk_rond(self):
         self.dialogue.print_text_dialogue("In je cel heb je een kast,<200> een prullenbak,<200> en je bed.<600>", 3)
+
+    def bekijk_item(self, item_naam):
+        if item_naam == "kast":
+            if "kast" in self.looted:
+                self.dialogue.print_text_dialogue("Dit is een kast.", 0.5)
+                self.dialogue.new_line()
+                return
+            self.dialogue.print_text_dialogue("In de kast zit een zakje coke. Wil je deze meenemen?", 2)
+            self.dialogue.new_line()
+            meeneem = input(": ").lower()
+            if meeneem == "ja":
+                self.looted.append("kast")
+                self.inventory.append("coke")
+                self.dialogue.print_text_dialogue("Je hebt nu de coke.", 0.8)
+                self.dialogue.new_line()
+        if item_naam == "prullenbak":
+            if "prullenbak" in self.looted:
+                self.dialogue.print_text_dialogue("Dit is een prullenbak.", 0.6)
+                self.dialogue.new_line()
+                return
+            self.dialogue.print_text_dialogue("In de prullenbak zit een hamer. Wil je deze meenemen?", 2)
+            self.dialogue.new_line()
+            meeneem = input(": ").lower()
+            if meeneem == "ja":
+                self.looted.append("prullenbak")
+                self.inventory.append("hamer")
+                self.dialogue.print_text_dialogue("Je hebt nu de hamer.", 0.8)
+                self.dialogue.new_line()
