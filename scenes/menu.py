@@ -1,6 +1,6 @@
-from dialogue import *
+import dialogue as dlo
 import colors as cs
-import game
+from scenes import cell
 import os
 import time
 
@@ -23,16 +23,14 @@ def menu():
                 cs.reset_colors()
             elif noice == "1":
                 os.system("cls")
-                game.run_game()
-                continue
+                cell.cell(docentmode)
+                pass
             elif noice == "2":
                 os.system("cls")
                 cs.set_console_color(93, 101)
                 print("Game Options")
                 cs.reset_colors()
                 print(f"\n(1) Docent mode ({docentmode})")
-                global DIALOGUE_DEBUG
-                print(f"(2) Debug mode ({DIALOGUE_DEBUG})")
                 op = input("> ")
                 if not op.isdigit():
                     cs.set_console_color(31)
@@ -42,22 +40,16 @@ def menu():
                     #option mode
                     cs.set_console_color(32)
                     docentmode = not docentmode
-                    print(f"Set docent mode to {docentmode}!")
-                    cs.reset_colors()
-                    time.sleep(2)
-                    os.system("cls")
-                    break
-                elif op == "2":
-                    #option mode
-                    cs.set_console_color(32)
-                    DIALOGUE_DEBUG = not DIALOGUE_DEBUG
-                    print(f"Set debug mode to {DIALOGUE_DEBUG}!")
+                    print("Set option!")
                     cs.reset_colors()
                     time.sleep(2)
                     os.system("cls")
                     break
             elif noice == "3":
-                print("DOE HIER DE HELP KANKER DANI")
+                print("Je kan ervoor kiezen om")
+                print("Rond te kijken")
+                print("Iets te bekijken")
+                print("Je inventory te openen")
             elif noice == "4":
                 print("Bye!")
                 quit()
