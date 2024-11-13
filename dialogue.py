@@ -4,6 +4,8 @@ import time
 import re
 import colors as cs
 
+DIALOGUE_DEBUG = False
+
 def print_text_dialogue(text, total_intro_time, fore=37, back=40):
     parts = re.split(r'(<\d+>)', text)
     
@@ -19,6 +21,7 @@ def print_text_dialogue(text, total_intro_time, fore=37, back=40):
         else:
             for letter in part:
                 print(letter, end='', flush=True)
+                global DIALOGUE_DEBUG
                 if False: # set to false for debug mode which removes the print delay
                     time.sleep(separate_sleep_time)
 
