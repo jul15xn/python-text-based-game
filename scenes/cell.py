@@ -66,7 +66,8 @@ class Cell(Scene):
                     if choise == "ja":
                         dlo.print_text_dialogue("Je gaat door de gang heen,<300> en je komt uit bij een vent.", 1)
                         dlo.new_line()
-                        dlo.print_text_dialogue("")
+                        dlo.print_text_dialogue("Je maakt deze vent open en je komt in een cellencomplex.<1000>", 1.5)
+                        dlo.new_line()
             else:
                 dlo.print_text_dialogue("Misschien kan je dit gat groter maken met een bepaald item,<300> iets van een hamer ofzo.", 2.5)
                 dlo.new_line()
