@@ -20,7 +20,7 @@ class Cell(Scene):
     def kijk_rond(self):
         dlo.print_text_dialogue("In je cel heb je een kast,<200> een prullenbak,<200> en je bed.<300>", 3)
         dlo.new_line()
-        dlo.print_text_dialogue("Ook zit er een klein gat boven je bed.<300> Je kan er net doorheen kijken en ziet een hele doorgang erin.<600>", 3.5)
+        dlo.print_text_dialogue("Ook zit er een klein gat boven je bed.<600>", 1)
         dlo.new_line()
 
     def bekijk_item(self, item_naam):
@@ -51,4 +51,10 @@ class Cell(Scene):
                 dlo.print_text_dialogue("Je hebt nu de hamer.", 0.8)
                 dlo.new_line()
         if item_naam == "gat":
-            dlo.print_text_dialogue()
+            dlo.print_text_dialogue("Er zit een klein gat boven je bed.<500> Je kan er deels doorheen kijken en je ziet een lange doorgang.<600>", 2)
+            dlo.new_line()
+            if "hamer" in self.inventory:
+                dlo.print_text_dialogue("Je hebt een hamer bij je.<400> Wil je het gat groter maken?", 1.5)
+            else:
+                dlo.print_text_dialogue("Misschien kan je dit gat groter maken met een bepaald item,<300> iets van een hamer ofzo.", 2.5)
+        
