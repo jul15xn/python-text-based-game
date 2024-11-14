@@ -58,6 +58,7 @@ class Cell(Scene):
                 dlo.new_line()
                 meeneem = input(": ").lower()
                 if meeneem == "ja":
+                    self.looted.append("gat")
                     dlo.print_text_dialogue("Je hakt het gat verder open met de hamer.<300> Je kan nu door het gat heen.", 1.5)
                     dlo.new_line()
                     dlo.print_text_dialogue("Wil je nu door het gat heen?", 0.7)
@@ -69,6 +70,19 @@ class Cell(Scene):
                         dlo.print_text_dialogue("Je maakt deze vent open en je komt in een cellencomplex.<1000>", 1.5)
                         dlo.new_line()
                         self.completed = True
+
+            if "gat" in self.looted:
+                dlo.print_text_dialogue("Het gat is groot genoeg om doorheen te gaan.<600> Je ziet er een lange gang doorheen.", 1.5)
+                dlo.new_line()
+                dlo.print_text_dialogue("Wil je nu door het gat heen?", 0.7)
+                dlo.new_line()
+                choise = input(": ").lower()
+                if choise == "ja":
+                    dlo.print_text_dialogue("Je gaat door de gang heen,<300> en je komt uit bij een vent.", 1)
+                    dlo.new_line()
+                    dlo.print_text_dialogue("Je maakt deze vent open en je komt in een cellencomplex.<1000>", 1.5)
+                    dlo.new_line()
+                    self.completed = True
             else:
                 dlo.print_text_dialogue("Misschien kan je dit gat groter maken met een bepaald item,<300> iets van een hamer ofzo.", 2.5)
                 dlo.new_line()
