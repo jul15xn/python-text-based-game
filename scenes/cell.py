@@ -68,6 +68,7 @@ class Cell(Scene):
                         dlo.new_line()
                         dlo.print_text_dialogue("Je maakt deze vent open en je komt in een cellencomplex.<1000>", 1.5)
                         dlo.new_line()
+                        self.completed = True
             else:
                 dlo.print_text_dialogue("Misschien kan je dit gat groter maken met een bepaald item,<300> iets van een hamer ofzo.", 2.5)
                 dlo.new_line()

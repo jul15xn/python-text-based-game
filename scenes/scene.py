@@ -6,7 +6,7 @@ class Scene:
     looted = []
 
     def __init__(self):
-        pass
+        self.completed = False
 
     def intro(self):
         pass
