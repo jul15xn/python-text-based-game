@@ -7,18 +7,18 @@ class Cell(Scene):
         super().__init__()
 
     def intro(self):
-        dlo.print_text_dialogue("Je bent in een cel in de gevangenis.<600>", 2)
+        dlo.print_text_dialogue("Je bent in een cel in de gevangenis.<600>", 1)
         dlo.new_line()
-        dlo.print_text_dialogue("Hier ben je beland door het proberen te bestelen van de juwelier.<600>", 3)
+        dlo.print_text_dialogue("Hier ben je beland door het proberen te bestelen van de juwelier.<600>", 2)
         dlo.new_line()
-        dlo.print_text_dialogue("Nu wil je proberen te ontsnappen uit de gevangenis.<600>", 2)
+        dlo.print_text_dialogue("Nu wil je proberen te ontsnappen uit de gevangenis.<600>", 1)
         dlo.new_line()
         self.kijk_rond()
         dlo.print_text_dialogue("Wat wil je nu gaan doen?<500>", 1)
         dlo.new_line()
 
     def kijk_rond(self):
-        dlo.print_text_dialogue("In je cel heb je een kast,<200> een prullenbak,<200> en je bed.<300>", 3)
+        dlo.print_text_dialogue("In je cel heb je een kast,<200> een prullenbak,<200> en je bed.<300>", 1.7)
         dlo.new_line()
         dlo.print_text_dialogue("Ook zit er een klein gat boven je bed.<600>", 1)
         dlo.new_line()
@@ -70,6 +70,7 @@ class Cell(Scene):
                         dlo.print_text_dialogue("Je maakt deze vent open en je komt in een cellencomplex.<1000>", 1.5)
                         dlo.new_line()
                         self.completed = True
+                        return
 
             if "gat" in self.looted:
                 dlo.print_text_dialogue("Het gat is groot genoeg om doorheen te gaan.<600> Je ziet er een lange gang doorheen.", 1.5)
@@ -83,6 +84,7 @@ class Cell(Scene):
                     dlo.print_text_dialogue("Je maakt deze vent open en je komt in een cellencomplex.<1000>", 1.5)
                     dlo.new_line()
                     self.completed = True
+                    return
             else:
                 dlo.print_text_dialogue("Misschien kan je dit gat groter maken met een bepaald item,<300> iets van een hamer ofzo.", 2.5)
                 dlo.new_line()

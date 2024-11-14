@@ -23,6 +23,7 @@ def menu():
                 cs.reset_colors()
             elif noice == "1":
                 os.system("cls")
+                dlo.DOCENT.enabled = docentmode
                 game.run_game()
                 pass
             elif noice == "2":

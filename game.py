@@ -13,7 +13,7 @@ def game_loop(scene: Scene):
             scene.open_inventory()
         elif len(user) >= 2 and user[0] == "kijk" and user[1] == "rond":
             scene.kijk_rond()
-        elif len(user) >= 2 and user[0] == "bekijk":
+        elif len(user) >= 2 and user[0] == "ganaar":
             scene.bekijk_item(user[1])
 
         if scene.completed:
