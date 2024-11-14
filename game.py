@@ -14,6 +14,5 @@ def run_game():
             current_scene.open_inventory()
         elif len(user) >= 2 and user[0] == "kijk" and user[1] == "rond":
             current_scene.kijk_rond()
-            current_scene.dialogue.new_line()
         elif len(user) >= 2 and user[0] == "bekijk":
             current_scene.bekijk_item(user[1])
