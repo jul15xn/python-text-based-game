@@ -55,6 +55,20 @@ class Cell(Scene):
             dlo.new_line()
             if "hamer" in self.inventory:
                 dlo.print_text_dialogue("Je hebt een hamer bij je.<400> Wil je het gat groter maken?", 1.5)
+                dlo.new_line()
+                meeneem = input(": ").lower()
+                if meeneem == "ja":
+                    dlo.print_text_dialogue("Je hakt het gat verder open met de hamer.<300> Je kan nu door het gat heen.", 1.5)
+                    dlo.new_line()
+                    dlo.print_text_dialogue("Wil je nu door het gat heen?", 0.7)
+                    dlo.new_line()
+                    choise = input(": ").lower()
+                    if choise == "ja":
+                        dlo.print_text_dialogue("Je gaat door de gang heen,<300> en je komt uit bij een vent.", 1)
+                        dlo.new_line()
+                        dlo.print_text_dialogue("")
             else:
                 dlo.print_text_dialogue("Misschien kan je dit gat groter maken met een bepaald item,<300> iets van een hamer ofzo.", 2.5)
+                dlo.new_line()
+                
         
