@@ -3,10 +3,13 @@ import sys
 import time
 import re
 import colors as cs
+from docent_vriendelijk import Docent
 
 DIALOGUE_DEBUG = False
+DOCENT = Docent()
 
 def print_text_dialogue(text, total_intro_time, fore=37, back=40):
+    text = DOCENT.parseText(text=text)
     parts = re.split(r'(<\d+>)', text)
     
     text_only = re.sub(r'<\d+>', '', text)
