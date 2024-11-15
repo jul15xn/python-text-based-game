@@ -3,13 +3,10 @@ import sys
 import time
 import re
 import colors as cs
-from docent_vriendelijk import Docent
 
 DIALOGUE_DEBUG = False
-DOCENT = Docent()
 
 def print_text_dialogue(text, total_intro_time, fore=37, back=40):
-    text = DOCENT.parseText(text=text)
     parts = re.split(r'(<\d+>)', text)
     
     text_only = re.sub(r'<\d+>', '', text)
@@ -25,7 +22,7 @@ def print_text_dialogue(text, total_intro_time, fore=37, back=40):
             for letter in part:
                 print(letter, end='', flush=True)
                 global DIALOGUE_DEBUG
-                if True: # set to false for debug mode which removes the print delay
+                if False: # set to false for debug mode which removes the print delay
                     time.sleep(separate_sleep_time)
 
 def new_line():

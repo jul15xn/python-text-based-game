@@ -13,8 +13,10 @@ def game_loop(scene: Scene):
             scene.open_inventory()
         elif len(user) >= 2 and user[0] == "kijk" and user[1] == "rond":
             scene.kijk_rond()
-        elif len(user) >= 2 and user[0] == "ganaar":
-            scene.bekijk_item(user[1])
+        elif len(user) >= 3 and user[0] == "ga" and user[1] == "naar":
+            scene.bekijk_item(user[2])
+        else:
+            dlo.print_text_dialogue("Onbekend commando!", 0.8)
 
         if scene.completed:
             break
@@ -27,8 +29,13 @@ def run_game():
     game_loop(current_scene)
     os.system("cls")
 
+    old_inv = current_scene.inventory
+
     # Tweede scene
     current_scene:Scene = Complex()
+
+    current_scene.inventory = old_inv
+
     current_scene.intro()
 
     game_loop(current_scene)

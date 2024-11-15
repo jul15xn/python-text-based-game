@@ -22,4 +22,8 @@ class Complex(Scene):
 
     def bekijk_item(self, item_naam):
         if item_naam == "man":
-            conversation.man_conv()
+            output = conversation.man_conv()
+            if output == 69:
+                self.inventory.append("2 euro")
+                dlo.print_text_dialogue("Je hebt nu 2 euro!<300>", 0.5)
+                dlo.new_line()

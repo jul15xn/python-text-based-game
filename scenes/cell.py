@@ -29,13 +29,13 @@ class Cell(Scene):
                 dlo.print_text_dialogue("Dit is een kast.", 0.5)
                 dlo.new_line()
                 return
-            dlo.print_text_dialogue("In de kast zit een zakje coke. Wil je deze meenemen? (JA/NEE)", 2)
+            dlo.print_text_dialogue("In de kast zit een zakje muesli. Wil je deze meenemen? (JA/NEE)", 2)
             dlo.new_line()
             meeneem = input(": ").lower()
             if meeneem == "ja":
                 self.looted.append("kast")
-                self.inventory.append("coke")
-                dlo.print_text_dialogue("Je hebt nu de coke.", 0.8)
+                self.inventory.append("muesli")
+                dlo.print_text_dialogue("Je hebt nu de muesli.", 0.8)
                 dlo.new_line()
         if item_naam == "prullenbak":
             if "prullenbak" in self.looted:
