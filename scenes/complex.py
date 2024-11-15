@@ -27,3 +27,7 @@ class Complex(Scene):
                 self.inventory.append("2 euro")
                 dlo.print_text_dialogue("Je hebt nu 2 euro!<300>", 0.5)
                 dlo.new_line()
+        if item_naam == "bewaker":
+            output = conversation.bewaker_conv(self.inventory)
+            if output == 68:
+                self.completed = True
