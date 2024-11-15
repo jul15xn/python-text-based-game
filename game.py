@@ -32,3 +32,10 @@ def run_game():
     current_scene.intro()
 
     game_loop(current_scene)
+
+def game_debug_2():
+    # Tweede scene
+    current_scene:Scene = Complex()
+    current_scene.intro()
+
+    game_loop(current_scene)

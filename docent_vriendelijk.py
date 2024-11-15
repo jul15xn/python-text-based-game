@@ -7,4 +7,5 @@ class Docent:
             return text
         text = text.replace("coke", "muesli")
         text = text.replace("bom", "mysterieus pakketje")
+        text = text.replace("gepijpt worden", "geholpen worden met je bed opmaken")
         return text

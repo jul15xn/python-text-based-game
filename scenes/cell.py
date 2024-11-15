@@ -29,7 +29,7 @@ class Cell(Scene):
                 dlo.print_text_dialogue("Dit is een kast.", 0.5)
                 dlo.new_line()
                 return
-            dlo.print_text_dialogue("In de kast zit een zakje coke. Wil je deze meenemen?", 2)
+            dlo.print_text_dialogue("In de kast zit een zakje coke. Wil je deze meenemen? (JA/NEE)", 2)
             dlo.new_line()
             meeneem = input(": ").lower()
             if meeneem == "ja":
@@ -42,7 +42,7 @@ class Cell(Scene):
                 dlo.print_text_dialogue("Dit is een prullenbak.", 0.6)
                 dlo.new_line()
                 return
-            dlo.print_text_dialogue("In de prullenbak zit een hamer. Wil je deze meenemen?", 2)
+            dlo.print_text_dialogue("In de prullenbak zit een hamer. Wil je deze meenemen? (JA/NEE)", 2)
             dlo.new_line()
             meeneem = input(": ").lower()
             if meeneem == "ja":
@@ -54,14 +54,14 @@ class Cell(Scene):
             dlo.print_text_dialogue("Er zit een klein gat boven je bed.<500> Je kan er deels doorheen kijken en je ziet een lange doorgang.<600>", 2)
             dlo.new_line()
             if "hamer" in self.inventory:
-                dlo.print_text_dialogue("Je hebt een hamer bij je.<400> Wil je het gat groter maken?", 1.5)
+                dlo.print_text_dialogue("Je hebt een hamer bij je.<400> Wil je het gat groter maken? (JA/NEE)", 1.5)
                 dlo.new_line()
                 meeneem = input(": ").lower()
                 if meeneem == "ja":
                     self.looted.append("gat")
                     dlo.print_text_dialogue("Je hakt het gat verder open met de hamer.<300> Je kan nu door het gat heen.", 1.5)
                     dlo.new_line()
-                    dlo.print_text_dialogue("Wil je nu door het gat heen?", 0.7)
+                    dlo.print_text_dialogue("Wil je nu door het gat heen? (JA/NEE)", 0.7)
                     dlo.new_line()
                     choise = input(": ").lower()
                     if choise == "ja":
@@ -75,7 +75,7 @@ class Cell(Scene):
             if "gat" in self.looted:
                 dlo.print_text_dialogue("Het gat is groot genoeg om doorheen te gaan.<600> Je ziet er een lange gang doorheen.", 1.5)
                 dlo.new_line()
-                dlo.print_text_dialogue("Wil je nu door het gat heen?", 0.7)
+                dlo.print_text_dialogue("Wil je nu door het gat heen? (JA/NEE)", 0.7)
                 dlo.new_line()
                 choise = input(": ").lower()
                 if choise == "ja":
