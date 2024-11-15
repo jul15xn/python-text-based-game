@@ -17,7 +17,9 @@ def game_loop(scene: Scene):
         elif len(user) >= 3 and user[0] == "ga" and user[1] == "naar":
             scene.bekijk_item(user[2])
         else:
-            dlo.print_text_dialogue("Onbekend commando!", 0.8)
+            dlo.print_text_dialogue("Onbekend commando!", 0.8, 31)
+            cs.reset_colors()
+            dlo.new_line()
 
         if scene.completed:
             break
@@ -34,9 +36,7 @@ def run_game():
 
     # Tweede scene
     current_scene:Scene = Complex()
-
     current_scene.inventory = old_inv
-
     current_scene.intro()
 
     game_loop(current_scene)
