@@ -165,6 +165,7 @@ BEWAKER_CONV = [
 ]
 
 def list_conv(item, name, inventory=None):
+    os.system("cls")
     print(f"{name}: {item['text']}")
     print('')
     valid_options = []
@@ -180,16 +181,21 @@ def list_conv(item, name, inventory=None):
         print("Geen opties beschikbaar. Druk op Enter om af te sluiten.")
         input("> ")
         return -1
-    
+
     dlo.new_line()
 
-    choice = input("> ")
-    choice = int(choice) - 1
+    while True:
+        choice = input("> ")
+        if not choice.isdigit():
+            print("Ongeldige invoer. Voer een geldig getal in.")
+            continue
 
-    if 0 <= choice < len(valid_options):
-        return valid_options[choice]["jump"]
-    else:
-        return -1
+        choice = int(choice) - 1
+
+        if 0 <= choice < len(valid_options):
+            return valid_options[choice]["jump"]
+        else:
+            print("Ongeldige keuze. Kies een geldig nummer.")
     
 def do_conversation(conv, name, inventory=None):
     iy = 0

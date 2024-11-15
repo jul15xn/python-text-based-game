@@ -22,7 +22,7 @@ def print_text_dialogue(text, total_intro_time, fore=37, back=40):
             for letter in part:
                 print(letter, end='', flush=True)
                 global DIALOGUE_DEBUG
-                if False: # set to false for debug mode which removes the print delay
+                if True: # set to false for debug mode which removes the print delay
                     time.sleep(separate_sleep_time)
 
 def new_line():

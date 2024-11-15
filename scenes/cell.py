@@ -32,10 +32,13 @@ class Cell(Scene):
             dlo.print_text_dialogue("In de kast zit een zakje muesli. Wil je deze meenemen? (JA/NEE)", 2)
             dlo.new_line()
             meeneem = input(": ").lower()
-            if meeneem == "ja":
+            if "ja" in meeneem:
                 self.looted.append("kast")
                 self.inventory.append("muesli")
                 dlo.print_text_dialogue("Je hebt nu de muesli.", 0.8)
+                dlo.new_line()
+            elif not "nee" in meeneem:
+                dlo.print_text_dialogue("Ongeldige invoer,<300> probeer weer naar dit ding te gaan!", 1.5)
                 dlo.new_line()
         if item_naam == "prullenbak":
             if "prullenbak" in self.looted:
@@ -45,12 +48,14 @@ class Cell(Scene):
             dlo.print_text_dialogue("In de prullenbak zit een hamer. Wil je deze meenemen? (JA/NEE)", 2)
             dlo.new_line()
             meeneem = input(": ").lower()
-            if meeneem == "ja":
+            if "ja" in meeneem:
                 self.looted.append("prullenbak")
                 self.inventory.append("hamer")
                 dlo.print_text_dialogue("Je hebt nu de hamer.", 0.8)
                 dlo.new_line()
-
+            elif not "nee" in meeneem:
+                dlo.print_text_dialogue("Ongeldige invoer,<300> probeer weer naar dit ding te gaan!", 1.5)
+                dlo.new_line()
         if item_naam == "bed":
             dlo.print_text_dialogue("Dit is je bed.<300> Je bed is erg groot.<500>", 1.5)
             dlo.new_line()
@@ -62,7 +67,7 @@ class Cell(Scene):
                 dlo.print_text_dialogue("Je hebt een hamer bij je.<400> Wil je het gat groter maken? (JA/NEE)", 1.5)
                 dlo.new_line()
                 meeneem = input(": ").lower()
-                if meeneem == "ja":
+                if "ja" in meeneem:
                     dlo.print_text_dialogue("Het gat is groot genoeg om doorheen te gaan.<600> Je ziet er een lange gang doorheen.<500>", 1.5)
                     dlo.new_line()
                     dlo.print_text_dialogue("Je gaat door de gang heen,<300> en je komt uit bij een vent.<500>", 1)
@@ -71,7 +76,9 @@ class Cell(Scene):
                     dlo.new_line()
                     self.completed = True
                     return
-                
+                elif not "nee" in meeneem:
+                    dlo.print_text_dialogue("Ongeldige invoer,<300> probeer weer naar dit ding te gaan!", 1.5)
+                    dlo.new_line()
             else:
                 dlo.print_text_dialogue("Misschien kan je dit gat groter maken met een bepaald item,<300> iets van een hamer ofzo.", 2.5)
                 dlo.new_line()
