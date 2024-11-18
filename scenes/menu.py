@@ -27,11 +27,7 @@ def menu():
                 quit()
                 break
             elif noice == "2":
-                print("Je kan ervoor kiezen om:")
-                print("Rond te kijken (kijk rond)")
-                print("Iets te bekijken (ga naar [item])")
-                print("Je inventory te openen (inventory)")
-                print("Alles tussen de haakjes kan je intypen in game.")
+                game.help_commando()
             elif noice == "3":
                 print("Bye!")
                 quit()

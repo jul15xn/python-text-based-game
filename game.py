@@ -6,9 +6,17 @@ import time
 
 current_scene = None
 
+def help_commando():
+    print("Je kan ervoor kiezen om:")
+    print("Rond te kijken (kijk rond)")
+    print("Iets te bekijken (ga naar [item])")
+    print("Je inventory te openen (inventory)")
+    print("Dit help command weer te geven (help)")
+    print("Alles tussen de haakjes kan je intypen in game.")
+
 def game_loop(scene: Scene):
     while True:
-        user = input(": ")
+        user = input(": ").lower()
         user = user.split(" ")
         if user[0] == "inventory":
             scene.open_inventory()
@@ -16,6 +24,8 @@ def game_loop(scene: Scene):
             scene.kijk_rond()
         elif len(user) >= 3 and user[0] == "ga" and user[1] == "naar":
             scene.bekijk_item(user[2])
+        elif user[0] == "help" and len(user) == 1:
+            help_commando()
         else:
             dlo.print_text_dialogue("Onbekend commando!", 0.8, 31)
             cs.reset_colors()
