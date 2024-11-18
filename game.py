@@ -59,11 +59,3 @@ def run_game():
     time.sleep(10)
     dlo.print_text_dialogue("Druk op enter om af te sluiten.", 0.8)
     input()
-
-def game_debug_2():
-
-    # Tweede scene
-    current_scene:Scene = Complex()
-    current_scene.intro()
-
-    game_loop(current_scene)
