@@ -70,9 +70,9 @@ class Cell(Scene):
                 if "ja" in meeneem:
                     dlo.print_text_dialogue("Het gat is groot genoeg om doorheen te gaan.<600> Je ziet er een lange gang doorheen.<500>", 1.5)
                     dlo.new_line()
-                    dlo.print_text_dialogue("Je gaat door de gang heen,<300> en je komt uit bij een vent.<500>", 1)
+                    dlo.print_text_dialogue("Je gaat door de gang heen,<300> en je komt uit bij een ventilatieschaft.<500>", 1)
                     dlo.new_line()
-                    dlo.print_text_dialogue("Je maakt deze vent open en je komt in een cellencomplex.<1500>", 1.5)
+                    dlo.print_text_dialogue("Je maakt dit ventilatieschaft open en je komt in een cellencomplex.<1500>", 1.5)
                     dlo.new_line()
                     self.completed = True
                     return
