@@ -164,50 +164,64 @@ BEWAKER_CONV = [
     }
 ]
 
+# Functie om een lijst met conversatieopties te tonen en een keuze te maken.
+# 'item' is het huidige deel van de conversatie (met tekst en antwoorden).
+# 'name' is de naam van de spreker.
+# 'inventory' is optioneel en bevat de items die de speler bezit.
 def list_conv(item, name, inventory=None):
-    os.system("cls")
-    print(f"{name}: {item['text']}")
+    os.system("cls")  # Maak het scherm leeg voor een schone presentatie.
+    print(f"{name}: {item['text']}")  # Toon de naam van de spreker en hun tekst.
     print('')
-    valid_options = []
+    
+    valid_options = []  # Lijst met beschikbare antwoorden.
 
+    # Loop door alle antwoorden en controleer eventuele vereisten.
     for idx, option in enumerate(item["antwoorden"]):
-        requires = option.get("requires")
-        if requires and inventory and requires not in inventory:
+        requires = option.get("requires")  # Vereist dit antwoord een item?
+        if requires and inventory and requires not in inventory:  # Als een item vereist is en ontbreekt, sla het over.
             continue
-        valid_options.append(option)
-        print(f"{len(valid_options)}. {option['text']}")
+        valid_options.append(option)  # Voeg het antwoord toe aan de lijst met geldige opties.
+        print(f"{len(valid_options)}. {option['text']}")  # Print het antwoord met een nummer.
 
+    # Als er geen geldige opties zijn, sluit de conversatie af.
     if not valid_options:
         print("Geen opties beschikbaar. Druk op Enter om af te sluiten.")
-        input("> ")
-        return -1
+        input("> ")  # Wacht op de speler.
+        return -1  # Geef -1 terug om de conversatie te beëindigen.
 
-    dlo.new_line()
+    dlo.new_line()  # Print een lege regel.
 
     while True:
-        choice = input("> ")
-        if not choice.isdigit():
+        choice = input("> ")  # Vraag de speler om een keuze.
+        if not choice.isdigit():  # Controleer of de input een geldig getal is.
             print("Ongeldige invoer. Voer een geldig getal in.")
             continue
 
-        choice = int(choice) - 1
+        choice = int(choice) - 1  # Converteer input naar een index.
 
-        if 0 <= choice < len(valid_options):
-            return valid_options[choice]["jump"]
+        if 0 <= choice < len(valid_options):  # Controleer of de keuze geldig is.
+            return valid_options[choice]["jump"]  # Geef de 'jump'-waarde terug (volgend deel van de conversatie).
         else:
             print("Ongeldige keuze. Kies een geldig nummer.")
-    
+
+# Functie die een hele conversatie doorloopt op basis van een gestructureerde 'conv'-lijst.
+# 'conv' is een lijst met conversatiestappen, elk met tekst en antwoorden.
+# 'name' is de naam van de spreker.
+# 'inventory' bevat optioneel de items die de speler bezit.
 def do_conversation(conv, name, inventory=None):
-    iy = 0
+    iy = 0  # Start bij het eerste deel van de conversatie.
     while True:
-        iy = list_conv(conv[iy], name, inventory)
-        if iy == -1 or iy >= len(conv):
+        iy = list_conv(conv[iy], name, inventory)  # Toon een deel van de conversatie en krijg de volgende index.
+        if iy == -1 or iy >= len(conv):  # Stop als de conversatie eindigt of de index ongeldig is.
             break
 
-    return iy  
+    return iy  # Geef de laatste index terug.
 
+# Specifieke functie voor de conversatie met een man.
 def man_conv():
     return do_conversation(MAN_CONV, "MAN")
 
+# Specifieke functie voor de conversatie met een bewaker.
+# 'inventory' wordt doorgegeven om opties afhankelijk te maken van de items die de speler heeft.
 def bewaker_conv(inventory):
     return do_conversation(BEWAKER_CONV, "BEWAKER", inventory)
