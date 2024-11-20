@@ -2,7 +2,7 @@ from scenes import menu
 import colors as cs
 import os
 
-# Maak het scherm leeg (voor Windows-systemen).
+# Maak het scherm leeg
 os.system("cls")
 
 try:

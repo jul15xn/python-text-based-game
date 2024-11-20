@@ -16,6 +16,16 @@ def help_commando():
     print("Dit help command weer te geven (help)")
     print("Alles tussen de haakjes kan je intypen in game.")
 
+# Functie om het spel te herstarten.
+def restart_game():
+    os.system("cls")  # Clear de console.
+    cs.set_console_color(92)
+    print("Het spel wordt opnieuw gestart...")
+    cs.reset_colors()
+    time.sleep(2)  # Wacht 2 seconden voor de herstart.
+    os.system("cls")
+    run_game()  # Start het spel opnieuw.
+
 # De hoofdgame-loop voor een specifieke scène.
 def game_loop(scene: Scene):
     while True:
@@ -31,6 +41,13 @@ def game_loop(scene: Scene):
             scene.bekijk_item(user[2])
         elif user[0] == "help" and len(user) == 1:  # Toon de helpinformatie.
             help_commando()
+        elif len(user) == 1 and user[0] == "restart":  # Vraag om bevestiging voor herstart.
+            dlo.print_text_dialogue("Weet je zeker dat je de HELE game wilt restarten? Zo ja, typ 'restart confirm'", 2, 33)
+            cs.reset_colors()
+            dlo.new_line()
+        elif len(user) == 2 and user[0] == "restart" and user[1] == "confirm":  # Herstart het spel.
+            restart_game()
+            break  # Verlaat de huidige game-loop.
         else:  # Als het commando niet wordt herkend, toon een foutmelding.
             dlo.print_text_dialogue("Onbekend commando!", 0.8, 31)  # Rood gekleurde tekst.
             cs.reset_colors()

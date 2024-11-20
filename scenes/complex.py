@@ -47,3 +47,7 @@ class Complex(Scene):
             output = conversation.bewaker_conv(self.inventory)  # Start de conversatie met de bewaker.
             if output == 68:  # Controleer of een specifieke waarde (bijvoorbeeld '68') is teruggegeven.
                 self.completed = True  # Markeer de scène als voltooid.
+
+        if item_naam == "ventilatieschaft":
+            # ga weer terug naar de cel
+            pass
