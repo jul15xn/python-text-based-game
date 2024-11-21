@@ -82,7 +82,7 @@ BEWAKER_CONV = [
                 "jump": 1
             },
             {
-                "text": "Krijg de tiefus!",
+                "text": "Krijg de t*****!",
                 "jump": 2
             },
             {
@@ -109,10 +109,6 @@ BEWAKER_CONV = [
         "antwoorden": [
             {
                 "text": "Sorry...",
-                "jump": 1
-            },
-            {
-                "text": "Doei.",
                 "jump": -1
             }
         ]
