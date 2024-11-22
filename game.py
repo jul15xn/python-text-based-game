@@ -38,7 +38,8 @@ def game_loop(scene: Scene):
         elif len(user) >= 2 and user[0] == "kijk" and user[1] == "rond":  # Kijk rond in de scène.
             scene.kijk_rond()
         elif len(user) >= 3 and user[0] == "ga" and user[1] == "naar":  # Ga naar een specifiek item.
-            scene.bekijk_item(user[2])
+            target = " ".join(user[2:])
+            scene.bekijk_item(target)
         elif user[0] == "help" and len(user) == 1:  # Toon de helpinformatie.
             help_commando()
         elif len(user) == 1 and user[0] == "restart":  # Vraag om bevestiging voor herstart.
@@ -86,3 +87,4 @@ def run_game():
     time.sleep(10)  # Wacht 10 seconden.
     dlo.print_text_dialogue("Druk op enter om af te sluiten.", 0.8)
     input()  # Wacht tot de speler op Enter drukt.
+    quit()

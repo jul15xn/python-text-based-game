@@ -25,7 +25,7 @@ def print_text_dialogue(text, total_intro_time, fore=37, back=40):
         else:  # Voor gewone tekst zonder tags.
             for letter in part:  # Print de tekst letter voor letter.
                 print(letter, end='', flush=True)  # Blijf op dezelfde regel en forceer output.
-                if True:  # Voor het testen van de game, als je dit op false zet, is er geen delay tussen de karakters
+                if False:  # Voor het testen van de game, als je dit op false zet, is er geen delay tussen de karakters
                     time.sleep(separate_sleep_time)
 
 # Print een nieuwe lege regel.
